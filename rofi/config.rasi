@@ -1,0 +1,91 @@
+configuration {
+    lines: 5;
+    font: "Iosevka 13";
+    terminal: "alacritty";
+    location: 0;
+    separator-style: "solid";
+    show-icons: true;
+    disable-history: false;
+    hide-scrollbar: true;
+    modi: "window,drun,run,ssh,filebrowser,windowcd,calc";
+}
+
+ @theme "/dev/null"
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color: #88c0d0;
+}
+
+* {
+    bg-col: #2e3440;
+    border-col: #81a1c1;
+    selected-col: #3b4252;
+    blue: #81a1c1;
+    fg-col: #bf616a;
+    fg-col2: #a3be8c;
+    width: 650;
+}
+
+window {
+    padding: 20px;
+    height: 480px;
+    border: 3px;
+    border-radius: 10px;
+    border-color: @border-col;
+    background-color: @bg-col;
+}
+
+mainbox {
+    padding: 5px;
+    border-radius: 13px;
+    background-color: @bg-col;
+}
+
+inputbar {
+    children: [prompt, entry];
+    background-color: @bg-col;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+prompt {
+    background-color: #3b4252;
+    padding: 5px 5px 0px;
+    text-color: #d8dee9;
+    border-radius: 3px;
+}
+
+
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+}
+
+entry {
+    padding: 6px;
+    text-color: @blue;
+    background-color: @bg-col;
+}
+
+listview {
+    border: 0px 0px 0px;
+    padding: 6px 0px 0px;
+    columns: 2;
+    background-color: @bg-col;
+}
+
+element {
+    padding: 5px;
+    background-color: @bg-col;
+    text-color: @blue;
+}
+
+element-icon {
+    size: 25px;
+}
+
+element selected {
+    background-color: @selected-col;
+    text-color: @blue;
+}
