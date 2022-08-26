@@ -25,8 +25,8 @@ font pango:hackcc
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --noforksu
-
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --noforksu
+exec --no-startup-id xss-lock -- betterlockscreen -l
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -151,7 +151,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+l exec betterlockscreen --lock 
+bindsym $mod+l exec loginctl lock-session 
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -190,7 +190,7 @@ bindsym $mod+r mode "resize"
 #polybar launch
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 exec --no-startup-id picom&
-
+#exec xss-lock -- betterlockscreen -l&
 #udiskie launch
 exec --no-startup-id udiskie -a -n &
 
@@ -215,9 +215,13 @@ bindsym $mod+g exec --no-startup-id rofi -show drun
 bindsym $mod+b exec --no-startup-id rofi -show run
 bindsym $mod+p exec --no-startup-id rofi -show power-menu -modi power-menu:rofi-power-menu
 bindsym $mod+c exec --no-startup-id rofi -show calc
+bindsym $mod+i exec --no-startup-id rofi-pass
 
-#firefox
-bindsym $mod+o exec firefox
+#-f-i-r-e-f-o-x- librewolf
+bindsym $mod+o exec librewolf
+
+
+
 
 #copycode
 # GAPS
@@ -260,6 +264,4 @@ for_window [class="Nautilus" instance="nautilus"] floating enable
 for_window [class="Thunar" instance="thunar"] floating enable
 
 # nemo start
-bindsym $mod+n exec nemo
-
-# nemo start
+bindsym $mod+n exec "alacritty --hold -e ranger"
