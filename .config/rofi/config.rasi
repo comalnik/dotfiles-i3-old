@@ -14,12 +14,13 @@ configuration {
 
 element-text, element-icon {
     background-color: inherit;
-    text-color: #88c0d0;
+    text-color: #d8dee9;
 }
 
 * {
     bg-col: #2e3440;
-    border-col: #81a1c1;
+    border-col-old: #81a1c1;
+    border-col: #434c5e;
     selected-col: #3b4252;
     blue: #81a1c1;
     fg-col: #bf616a;
@@ -44,13 +45,15 @@ mainbox {
 
 inputbar {
     children: [prompt, entry];
-    background-color: @bg-col;
+//    background-color: #81a1c1;
+  background-color: @bg-col;
     border-radius: 5px;
     padding: 2px;
 }
 
 prompt {
     background-color: #3b4252;
+//    background-color: #81a1c1;
     padding: 5px 5px 0px;
     text-color: #d8dee9;
     border-radius: 3px;
@@ -76,13 +79,17 @@ listview {
 }
 
 element {
-    padding: 5px;
+    padding: 7px;
+    border-radius: 3px;
     background-color: @bg-col;
     text-color: @blue;
 }
 
 element-icon {
-    size: 25px;
+    size: 14px;
+    horizontal-align: 0.5;
+    vertical-align: 0.5; 
+
 }
 
 element selected {
