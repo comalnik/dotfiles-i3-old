@@ -207,7 +207,8 @@ bindsym $mod+minus scratchpad show
 #start feh
 exec --no-startup-id ~/.fehbg
 
-
+#auto tiling
+exec autotiling
 
 #rofi
 
