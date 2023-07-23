@@ -70,13 +70,13 @@ font-3 = FontAwesome:pixelsize=13;1
 
 
 
-modules-left = i3
+modules-left = i3 locale xkeyboard
 modules-center = 
 modules-right = cpu sep memory sep pulseaudio sep date
 
 #modules-right = filesystem xbacklight pulseaudio xkeyboard temperature memory cpu eth date powermenu
 
-tray-position = center
+tray-position = none
 tray-padding = 0
 ;tray-background = #0063ff
 
@@ -104,25 +104,36 @@ content-foreground = #4C566A
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:60:...%
+label = %title:0:9:...%
+
+
+[module/locale]
+type = custom/script
+exec = echo "$(setxkbmap -query | grep layout)" | cut -c 13-
+click-left = bash $HOME/.config/polycale/script.sh
+foreground = ${colors.secondary}
+
+
+
 
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = " "
-format-prefix-foreground = ${colors.secondary}
+format = <label-indicator> 
+;format-prefix = " "
+;format-prefix-foreground = ${colors.secondary}
 
 
 
-label-layout = %layout%
-label-layout-foreground = ${colors.secondary}
+;label-layout = %layout%
+;label-layout-foreground = ${colors.secondary}
 
-label-indicator-padding = 0
-label-indicator-margin = 0
-label-indicator-background = #FFC0CB
-label-indicator-underline = ${colors.secondary}
-label-indicator-foreground = #282c34
+;label-indicator-padding = 0
+;label-indicator-margin = 0
+;label-indicator-background = #FFC0CB
+;label-indicator-underline = ${colors.secondary}
+;label-indicator-foreground = #282c34
 
 
 ;------custom modules for starting programs (to replace with:https://github.com/geshido/i3-tools)------
